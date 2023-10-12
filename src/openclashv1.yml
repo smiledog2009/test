@@ -173,6 +173,7 @@ rules:
     - 'DOMAIN-SUFFIX,apps.apple.com,自选节点'
     - 'DOMAIN-SUFFIX,blobstore.apple.com,自选节点'
     - 'DOMAIN,cvws.icloud-content.com,自选节点'
+    - 'DOMAIN-SUFFIX,cnd.org,自选节点'
     - 'DOMAIN-SUFFIX,mydianshijia.com,DIRECT'
     - 'DOMAIN-SUFFIX,mzstatic.com,DIRECT'
     - 'DOMAIN-SUFFIX,itunes.apple.com,DIRECT'
