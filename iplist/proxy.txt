@@ -1,4 +1,7 @@
 payload:
+  - '+.epochtimes.com'
+  - '+.cnd.org'
+  - '+.voachinese.com'
   - '+.0000002.com'
   - '+.00006801.com'
   - '+.00066hg.com'
