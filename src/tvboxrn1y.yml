@@ -1,0 +1,43 @@
+mixed-port: 7890
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+external-controller: '0.0.0.0:9090'
+dns:
+    enable: true
+    ipv6: false
+    default-nameserver: [223.5.5.5, 119.29.29.29]
+    enhanced-mode: redir-host
+    fake-ip-range: 198.18.0.1/16
+    use-hosts: true
+    nameserver: ['8.8.8.8', '1.1.1.1']
+
+proxies:
+    - {"name":"CM1","type":"vless","server":"cm1.20091688.xyz","port":2052,"uuid":"78ca37ac-0b88-4875-ee00-febe451a8a8f","tls":false,"servername":"rn.20091688.xyz","network":"ws","ws-opts":{"path":"/78ca37ac","headers":{"host":"rn.20091688.xyz"}},"client-fingerprint":"randomized"}
+    - {"name":"CM2","type":"vless","server":"cm2.20091688.xyz","port":2052,"uuid":"78ca37ac-0b88-4875-ee00-febe451a8a8f","tls":false,"servername":"rn.20091688.xyz","network":"ws","ws-opts":{"path":"/78ca37ac","headers":{"host":"rn.20091688.xyz"}},"client-fingerprint":"randomized"}
+    - {"name":"CM3","type":"vless","server":"cm3.20091688.xyz","port":2052,"uuid":"78ca37ac-0b88-4875-ee00-febe451a8a8f","tls":false,"servername":"rn.20091688.xyz","network":"ws","ws-opts":{"path":"/78ca37ac","headers":{"host":"rn.20091688.xyz"}},"client-fingerprint":"randomized"}
+    - {"name":"CM4","type":"vless","server":"cm4.20091688.xyz","port":2052,"uuid":"78ca37ac-0b88-4875-ee00-febe451a8a8f","tls":false,"servername":"rn.20091688.xyz","network":"ws","ws-opts":{"path":"/78ca37ac","headers":{"host":"rn.20091688.xyz"}},"client-fingerprint":"randomized"}
+    - {"name":"CM5","type":"vless","server":"cm5.20091688.xyz","port":2052,"uuid":"78ca37ac-0b88-4875-ee00-febe451a8a8f","tls":false,"servername":"rn.20091688.xyz","network":"ws","ws-opts":{"path":"/78ca37ac","headers":{"host":"rn.20091688.xyz"}},"client-fingerprint":"randomized"}
+ 
+    - {"name":"CT1","type":"vless","server":"ct1.20091688.xyz","port":2052,"uuid":"78ca37ac-0b88-4875-ee00-febe451a8a8f","tls":false,"servername":"rn.20091688.xyz","network":"ws","ws-opts":{"path":"/78ca37ac","headers":{"host":"rn.20091688.xyz"}},"client-fingerprint":"randomized"}
+    - {"name":"CT2","type":"vless","server":"ct2.20091688.xyz","port":2052,"uuid":"78ca37ac-0b88-4875-ee00-febe451a8a8f","tls":false,"servername":"rn.20091688.xyz","network":"ws","ws-opts":{"path":"/78ca37ac","headers":{"host":"rn.20091688.xyz"}},"client-fingerprint":"randomized"}
+    - {"name":"CT3","type":"vless","server":"ct3.20091688.xyz","port":2052,"uuid":"78ca37ac-0b88-4875-ee00-febe451a8a8f","tls":false,"servername":"rn.20091688.xyz","network":"ws","ws-opts":{"path":"/78ca37ac","headers":{"host":"rn.20091688.xyz"}},"client-fingerprint":"randomized"}
+    - {"name":"CT4","type":"vless","server":"ct4.20091688.xyz","port":2052,"uuid":"78ca37ac-0b88-4875-ee00-febe451a8a8f","tls":false,"servername":"rn.20091688.xyz","network":"ws","ws-opts":{"path":"/78ca37ac","headers":{"host":"rn.20091688.xyz"}},"client-fingerprint":"randomized"}
+    - {"name":"CT5","type":"vless","server":"ct5.20091688.xyz","port":2052,"uuid":"78ca37ac-0b88-4875-ee00-febe451a8a8f","tls":false,"servername":"rn.20091688.xyz","network":"ws","ws-opts":{"path":"/78ca37ac","headers":{"host":"rn.20091688.xyz"}},"client-fingerprint":"randomized"}
+
+    - {"name":"CU1","type":"vless","server":"cu1.20091688.xyz","port":2052,"uuid":"78ca37ac-0b88-4875-ee00-febe451a8a8f","tls":false,"servername":"rn.20091688.xyz","network":"ws","ws-opts":{"path":"/78ca37ac","headers":{"host":"rn.20091688.xyz"}},"client-fingerprint":"randomized"}
+    - {"name":"CU2","type":"vless","server":"cu2.20091688.xyz","port":2052,"uuid":"78ca37ac-0b88-4875-ee00-febe451a8a8f","tls":false,"servername":"rn.20091688.xyz","network":"ws","ws-opts":{"path":"/78ca37ac","headers":{"host":"rn.20091688.xyz"}},"client-fingerprint":"randomized"}
+    - {"name":"CU3","type":"vless","server":"cu3.20091688.xyz","port":2052,"uuid":"78ca37ac-0b88-4875-ee00-febe451a8a8f","tls":false,"servername":"rn.20091688.xyz","network":"ws","ws-opts":{"path":"/78ca37ac","headers":{"host":"rn.20091688.xyz"}},"client-fingerprint":"randomized"}
+    - {"name":"CU4","type":"vless","server":"cu4.20091688.xyz","port":2052,"uuid":"78ca37ac-0b88-4875-ee00-febe451a8a8f","tls":false,"servername":"rn.20091688.xyz","network":"ws","ws-opts":{"path":"/78ca37ac","headers":{"host":"rn.20091688.xyz"}},"client-fingerprint":"randomized"}
+    - {"name":"CU5","type":"vless","server":"cu5.20091688.xyz","port":2052,"uuid":"78ca37ac-0b88-4875-ee00-febe451a8a8f","tls":false,"servername":"rn.20091688.xyz","network":"ws","ws-opts":{"path":"/78ca37ac","headers":{"host":"rn.20091688.xyz"}},"client-fingerprint":"randomized"}
+
+proxy-groups:
+    - { name: 自选节点, type: select, proxies: [自动选择, 故障转移, DIRECT, CM1, CM2, CM3, CM4, CM5, CT1, CT2, CT3, CT4, CT5, CU1, CU2, CU3, CU4, CU5] }
+    - { name: 自动选择, type: url-test, proxies: [CM1, CM2, CM3, CM4, CM5, CT1, CT2, CT3, CT4, CT5, CU1, CU2, CU3, CU4, CU5], url: 'http://www.gstatic.com/generate_204', interval: 3600 }
+    - { name: 故障转移, type: fallback, proxies: [CM1, CM2, CM3, CM4, CM5, CT1, CT2, CT3, CT4, CT5, CU1, CU2, CU3, CU4, CU5], url: 'http://www.gstatic.com/generate_204', interval: 3600 }
+    
+    
+rules:
+    - 'GEOIP,CN,DIRECT'
+    - 'MATCH,自选节点'
